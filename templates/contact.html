@@ -1,0 +1,55 @@
+{% extends "home.html" %}
+{% load static %}
+{% block title %}
+ <title> Contact</title>
+{% endblock title %}
+{% block content %}
+
+
+
+
+
+
+  <div class="container mt-5 text-black-50">
+    <div class="row">
+
+        <div class="col-8 ">
+            <div class='line-titles'><span><h4 class="text-warning ">İLETİŞİM</h4></span></div> 
+            <form action=""  method="POST">
+                {% csrf_token %}
+                 {{form}}
+                  {% if error %}
+                    <div class="alert alert-danger">
+                        {{error}}
+                    </div>
+                {% else %}
+                {% endif %}
+                <input type="submit" value="Gönder" class="btn btn-sm float-end bg-warning text-black-50 border-0 mt-4 iletisim3">
+            </form>
+        </div>
+            
+
+        <div class="col-4 text-center iletisimbilgisi">
+            <div class='line-titles'><span><h4 class="text-warning iletisimbilgisi2">İLETİŞİM BİLGİLERİ</h4></span></div> 
+            <ul>
+                <li><small>E-Shopper Inc.</small></li>
+                <li><small>935 W. Webster Ave New Streets Chicago, IL</small></li>
+                <li><small>60614, NY</small></li>
+                <li><small>Newyork USA</small></li>
+                <li><small>Mobile: +2346 17 38 93</small></li>
+                <li><small>Fax: 1-724-252-0026</small></li>
+                <li><small>Email: info@e-shopper.com</small></li>
+            </ul>
+            <div class='line-titles'><span><h4 class="text-warning sosyalaglar">SOSYAL AĞLAR</h4></span></div> 
+        <h5><big><i class="fa-brands fa-facebook-f me-2 text-black-50 face"></i></big> 
+           <big><i class="fa-brands fa-twitter me-2 text-black-50 twit"></i></big> 
+           <big><i class="fa-brands fa-google-plus-g me-2 text-black-50 google"></i></big>
+           <big><i class="fa-brands fa-youtube youtube"></i></big></h5>
+        </div>
+    </div>
+  </div>
+  
+   <hr class="text-black-50">
+
+{% endblock content %}
+

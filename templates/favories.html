@@ -1,0 +1,120 @@
+{% extends "home.html" %}
+{% load static %}
+ {% block title %} <title>Favories</title> {% endblock title %}
+     
+    
+{% block content %}
+<div class="container mt-5">
+  <div class="float-start super"><h4 class="text-warning baslik">Kategoriler</h4></div>
+  <div class="text-center super"><h4 class="text-warning baslik">Favoriler</h4></div> 
+</div>
+     
+     <!-- Acordion -->
+      
+     <div class="container ">
+      <div class="row ">
+        <div class="col-3 acordion">
+          <div class="m-auto mt-5 accordiondiv float-start">
+              <button class="accordion1"><small>SPOR GİYİM</small></button>
+              <div class="panel">
+                 <ul>
+                  <li>Koşu Ayakkabı</li>
+                  <li>Nike T-Shirt</li>
+                  <li>Eşortman</li>
+                 </ul>
+              </div>
+
+              <button class="accordion1 mt-2"><small>ERKEK</small></button>
+              <div class="panel">
+                  <ul>
+                    <li>Gömlek</li>
+                    <li>Ayakkabı</li>
+                    <li>Pantolon</li>
+                  </ul>
+              </div>
+
+              <button class="accordion1 mt-2"><small>KADIN</small></button>
+              <div class="panel">
+                <ul>
+                  <li>Adidas T-Shirt</li>
+                  <li>Hırka</li>
+                  <li>Topuklu Ayakkabı</li>
+                </ul>
+            </div>
+              <button class="accordion mt-2"><small>ÇOCUK</small></button>
+              
+              <button class="accordion mt-2"><small>MODA</small></button>
+
+              <button class="accordion mt-2"><small>EV & MOBİLYA</small></button>
+              
+              <button class="accordion mt-2"><small>İÇ GİYİM</small></button>
+              
+              <button class="accordion mt-2"><small>GİYECEK</small></button>
+              
+              <button class="accordion mt-2"><small>ÇANTA</small></button>
+              
+              <button class="accordion mt-2"><small>AYAKKABI</small></button>    
+        </div>
+       
+   
+     </div> 
+    
+        <!-- Kartlar -->
+         <!-- <div class="container">
+          <div class="row">
+         <div class="col-3">
+            
+        <div class="resim mt-5 float-start">
+          <img src="{% static 'img/afiş.png' %}" alt="" class="">
+        </div>
+      </div> -->
+
+            {% for i in urun %}      
+             <div class="col-3 float-end">
+              <div class="card mt-5 television" style="width: 100%; ">
+                <img src="{{i.gorsel.url}}" class="card-img-top image" alt="...">
+                <div class="card-body text-center">
+                  <h5 class="card-title  text-warning fs-3"><big class="para">${{i.ucret}}</big></h5>
+                  <p class="card-text text-black-50">{{i.hakkinda}}</p>
+                  <button class="btn btn-group bg-light text-black-50 sepeteekle"><i class="fa-solid fa-cart-shopping ekle"></i> Sepete Ekle</button>
+                </div>
+              </div>
+              <div class="fs-6"> 
+                <button type="button" class="btn btn-secondary btn-sm bg-light text-black-50 bg-light text-black-50 float-start  w-50 h-25 border-start-0 border-top-0 border-bottom-0 border-light mt-2 mb-5 button"> <small><i class="fa-solid fa-plus"></i> </small> <small class="istek">Favorilere Ekle</small> </button>
+                <button type="button" class="btn btn-secondary btn-sm float-end bg-light text-black-50 border-0 mt-2 mb-5 w-50 h-25 button1"><small><i class="fa-solid fa-plus"></i></small> <small class="karsilastir">Ekle ve Karşılaştır</small></button>
+              </div>
+             </div>
+    {% endfor %}
+  </div>
+</div> 
+        
+               <!-- Slide -->
+         <div class="container mt-5">
+            <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <img src="{% static 'img/reklam1.webp' %}" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                  <img src="{% static 'img/reklam2.webp' %}" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                  <img src="{% static 'img/reklam3.webp' %}" class="d-block w-100" alt="...">
+                </div>
+              </div>
+              <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div>
+        </div>
+{% endblock content %}
+
+
+    
+      
+          

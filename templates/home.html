@@ -1,0 +1,149 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block title %}
+     <title>Home Page</title>
+    {% endblock title %}
+   
+    <script src="https://kit.fontawesome.com/10eae2f03b.js" crossorigin="anonymous"></script>
+    <!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+<!-- My CSS -->
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    {% include "includes/_navbar.html" %}
+
+    {% if messages %}
+    {% for mesaj in messages %}
+        <div class="alert alert-{{mesaj.tags}} text-center mt-4" role="alert">
+            {{mesaj}}
+        </div>
+    {% endfor %}
+    {% else %}
+    {% endif %}
+
+{% block content %}
+
+
+  <div class="container afis mt-5">
+    <div class="reklam bg-warning  text-white text-center">
+      <h3 class="d-inline float-start mx-5 sinirli">Sınırlı Teklif-Bugün Sipariş Verin</h3> 
+      <h2 class="text-warning bg-white d-inline mb-3 doksan"><big>$99</big></h2>
+      <h6 class="d-inlne float-end afisici"><small>*Bir alana bir bedava <br>
+        *Promosyonlarda %40'a varan indirim
+      </small></h6>
+    </div>
+</div>
+
+<div class="container mt-5">
+  <div class="float-start super"><h4 class="text-warning baslik mx-3">Kategoriler</h4></div> 
+  <div class="text-center super"><h4 class="text-warning baslik">SüperMarket</h4></div> 
+</div>
+  
+     <!-- Acordion -->
+     <div class="container ">
+      <div class="row ">
+        <div class="col-3 acordion">
+          <div class="m-auto mt-5 accordiondiv float-start">
+              <button class="accordion1"><small>SPOR GİYİM</small></button>
+              <div class="panel">
+                 <ul>
+                  <li>Koşu Ayakkabı</li>
+                  <li>Nike T-Shirt</li>
+                  <li>Eşortman</li>
+                 </ul>
+              </div>
+
+              <button class="accordion1 mt-2"><small>ERKEK</small></button>
+              <div class="panel">
+                  <ul>
+                    <li>Gömlek</li>
+                    <li>Ayakkabı</li>
+                    <li>Pantolon</li>
+                  </ul>
+              </div>
+
+              <button class="accordion1 mt-2"><small>KADIN</small></button>
+              <div class="panel">
+                <ul>
+                  <li>Adidas T-Shirt</li>
+                  <li>Hırka</li>
+                  <li>Topuklu Ayakkabı</li>
+                </ul>
+            </div>
+              <button class="accordion mt-2"><small>ÇOCUK</small></button>
+              
+              <button class="accordion mt-2"><small>MODA</small></button>
+
+              <button class="accordion mt-2"><small>EV & MOBİLYA</small></button>
+              
+              <button class="accordion mt-2"><small>İÇ GİYİM</small></button>
+              
+              <button class="accordion mt-2"><small>GİYECEK</small></button>
+              
+              <button class="accordion mt-2"><small>ÇANTA</small></button>
+              
+              <button class="accordion mt-2"><small>AYAKKABI</small></button>    
+        </div>
+       
+      </div>
+    
+
+     
+     
+    
+      
+
+        <!-- Kartlar -->
+         <!-- <div class="container">
+          <div class="row">
+         <div class="col-3">
+            
+        <div class="resim mt-5 float-start">
+          <img src="{% static 'img/afiş.png' %}" alt="" class="">
+        </div>
+      </div> -->
+
+            {% for i in urunler %}      
+             <div class="col-3 float-end">
+              <div class="card mt-5 television" style="width: 100%; ">
+                <img src="{{i.resim.url}}" class="card-img-top image" alt="...">
+                <div class="card-body text-center">
+                  <h5 class="card-title  text-warning fs-3"><big class="para">${{i.fiyat}}</big></h5>
+                  <p class="card-text text-black-50">{{i.aciklama}}</p>
+                  <button class="btn btn-group bg-light text-black-50 sepeteekle"><i class="fa-solid fa-cart-shopping ekle"></i> Sepete Ekle</button>
+                </div>
+              </div>
+              <div class="fs-6"> 
+                <button type="button" class="btn btn-secondary btn-sm bg-light text-black-50 bg-light text-black-50 float-start  w-50 h-25 border-start-0 border-top-0 border-bottom-0 border-light mt-2 mb-5 button"> <small><i class="fa-solid fa-plus"></i> </small> <small class="istek">Favorilere Ekle</small> </button>
+                <button type="button" class="btn btn-secondary btn-sm float-end bg-light text-black-50 border-0 mt-2 mb-5 w-50 h-25 button1"><small><i class="fa-solid fa-plus"></i></small> <small class="karsilastir">Ekle ve Karşılaştır</small></button>
+              </div>
+             </div>
+    {% endfor %}
+  </div>
+</div> 
+        
+        {% endblock content %}
+      
+      
+        
+
+{% include "includes/_footer.html" %}
+          
+
+
+
+
+
+
+
+
+<!--  JavaScript Bundle with Popper --> 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+</body>
+</html>

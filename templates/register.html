@@ -1,0 +1,40 @@
+{% extends "home.html" %}
+{% load static %}
+{% block title %}
+     <title>Register</title>
+    {% endblock title %}
+{% block content %}
+
+
+
+   <div class="container mt-5 me-5">
+<div class="row text-black-50">
+   <!--  <div class="col-4">
+        
+</div>
+    
+      <h2 class="yuvarlak bg-warning mt-5 d-flex justify-content-center">  <b class="text-white"><big>VEYA</big></b></h2>
+ -->
+<div class="col">
+    <div class='line-titles'><span><h4 class="text-warning">Üye Olun</h4></span></div>
+    <form action="" method="POST">
+        {% csrf_token %}
+        
+        {% if error %}
+        <div class="alert alert-danger">
+            {{error}}
+        </div>
+        {% else %}
+        {% endif %}
+    <input type="text" name="username" class="form-control mb-3" placeholder="İsim" >     
+    <input type="email" name="email" class="form-control mb-3" placeholder="E-mail">    
+    <input type="password" name="password"  class="form-control mb-3" placeholder="Şifre">
+    <input type="password" name="repassword"  class="form-control mb-3" placeholder="Şifre Onayı">
+    <input type="submit" value="Üye Ol" class="btn btn-secondary btn-sm bg-warning text-white border-0 mt-4">
+</form> 
+    </div>    
+   </div>
+   </div>
+
+{% endblock content %}
+

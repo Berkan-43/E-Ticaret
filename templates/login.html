@@ -1,0 +1,36 @@
+{% extends "home.html" %}
+{% load static %}
+{% block title %}
+     <title>Login</title>
+    {% endblock title %}
+    {% if messages %}
+    {% for mesaj in messages %}
+        <div class="alert alert-{{mesaj.tags}} text-center" role="alert">
+            {{mesaj}}
+        </div>
+    {% endfor %}
+    {% else %}
+    {% endif %}
+
+{% block content %}
+    <div class="container mt-5 mb-5">
+        <div class="row text-black-50">
+            <div class="col">
+                <div class='line-titles'><span><h4 class="text-warning">Giriş Yapın</h4></span></div> 
+                <form method="POST">
+                {% csrf_token %}
+                {% if error %}
+                <div class="alert alert-danger">
+                    {{error}}
+                </div>
+            {% else %}
+            {% endif %}
+                <input type="text" name="username" class="form-control mb-3" placeholder="İsim" >             
+                <input type="password" name="password" class="form-control mb-3" placeholder="Şifre">  
+                <input type="radio" name="radio"> <label for="">Oturumu açık tut</label>  <br> 
+                <input type="submit" value="Giriş Yap" class="btn btn-secondary btn-sm bg-warning text-white border-0 mt-4">
+            </form>
+            </div>
+        </div>
+    </div>
+{% endblock content %}

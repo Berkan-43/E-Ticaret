@@ -1,0 +1,22 @@
+{% extends "home.html" %}
+{% load static %}
+
+
+{% block title %}
+  <title>product-add</title>
+{% endblock title %}
+
+
+{% block content %}
+   <form action="" method="POST" enctype="multipart/form-data" class="container">
+    {% csrf_token%}
+    {{add}}
+    {% if error %}
+        <div class="alert alert-danger">
+            {{error}}
+        </div>
+      {% else %}
+      {% endif %}
+    <input type="submit" value="Ekle" class="btn btn-sm bg-warning text-black-50 border-0 mt-4 iletisim3">
+   </form>
+{% endblock content %}

@@ -1,0 +1,120 @@
+   {% load static %}
+   <nav class="nav bg-light fixed-top">
+    <div class="container-fluid">
+    <div class="float-start mx-3 icon1">
+        <small class="phone"><a href="" class="text-black-50"><i class="fa-solid fa-phone  text-black-50"></i>+2 95 01  88 82</a></small> 
+        <small class="email"><a href="" class="text-black-50"><i class="fa-solid fa-envelope me-1 text-black-50 mx-2 email"></i>info@domain.com</a></small> 
+   </div>
+    
+   <div class="float-end me-4 icon2">
+   
+    <small><a href=""> <i class="fa-brands fa-facebook-f me-2 text-black-50"></i></a></small>
+    <small><a href=""><i class="fa-brands fa-twitter me-2 text-black-50"></i></a></small>
+    <small><a href=""><i class="fa-brands fa-linkedin-in me-2 text-black-50"></i></a></i></small>    
+    <small><a href=""><i class="fa-solid fa-basketball me-2 text-black-50"></i></a></small>
+    <small><a href=""><i class="fa-brands fa-google-plus-g me-2 text-black-50"></i></a></small>
+
+</div>
+</div>
+   </nav>
+
+   <nav class="navbar bg-gradient mt-4">
+    <div class="container-fluid">
+        <div class="menu">        
+      <a class="navbar-brand" href="{% url 'home' %}">
+        <img src="{% static 'img/Ekran Alıntısı.PNG' %}" alt="" width="150" height="60" class="mx-1 navresim">
+      </a>
+      <select name="" id="" class="text-black-50 mani mani1">
+        <option value="usa">USA</option>
+        <option value="tl">TL</option>
+        <option value="manat">MANAT</option>
+      </select>
+      <select name="" id="" class="text-black-50 mani">
+        <option value="dolar">DOLAR</option>
+        <option value="euro">EURO</option>
+        <option value="sterlin">STERLİN</option>
+      </select>
+    </div>
+
+
+
+    <div class="float-end orta">
+        {% if user.is_authenticated %}
+          <a href="" class="btn text-black-50 giris"><i class="fa-solid fa-user me-1 mx-2 capitalize text-capitalize"></i>{{request.user}}</a>
+          <a href="{% url 'favori' %}" class="btn text-black-50 star"><i class="fa-solid fa-star me-1 mx-2"></i>Favoriler</a>
+          <a href="{% url 'basket' %}" class="btn text-black-50 sepet"><i class="fa-solid fa-cart-shopping me-1 mx-2"></i>Sepet</a>
+          <a href="" class="btn text-black-50 odeme"><i class="fa-solid fa-money-bill me-1 mx-2"></i>Ödeme</a>
+          <a href="" type="button" class="btn text-black-50" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa-solid fa-right-from-bracket me-1 mx-2"></i>Çıkış</a>
+          <!-- Modal -->
+          <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Çıkış Yap</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  Çıkış Yapmak İstediğinizden Eminmisiniz ?
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-sm btn-secondary" data-bs-dismiss="modal">Hayır</button>
+                  <button type="button" class="btn btn-sm btn-warning"><a href="{% url 'logout' %}" class="text-white">Evet</a></button>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+        {% else %}
+        <a href="{% url 'login' %}" class="text-black-50 giris"><i class="fa-solid fa-user me-1 mx-2"></i></i>Giriş Yap</a>
+        <a href="{% url 'register' %}" class="text-black-50 giris"><i class="fa-solid fa-lock me-1 mx-2"></i>Üye Ol</a>
+        {% endif %}
+     
+       
+   
+    
+    </div> 
+    
+     </div> 
+</nav>
+
+<hr class="text-black-50">
+
+<!-- Search -->
+<div class="input-wrapper d-flex float-end mx-4 ara">
+  <form action="" method="GET">
+  <div class="btn-toolbar justify-content-between " role="search" aria-label="Toolbar with button groups">
+  </div>
+  <div class="input-group ">
+    <button type="submit" class="input-group-text " id="btnGroupAddon2"><i class="fa-solid fa-magnifying-glass"></i></button>
+    <input type="text" name="search_product" value="{{search_product}}" class="form-control " placeholder="Ara" aria-label="Input group example" aria-describedby="btnGroupAddon2">
+  </div>
+</form>
+</div>
+ 
+<div class="btn-group son">
+  <button class="mx-3 me-0 border-0 bg-white  anasayfa" id="anasayfa"><a href="{% url 'home' %}" class="text-warning">Ana Sayfa</a></button>
+  <button type="button" class="btn btn-secondary bg-white text-black-50 border-0 market">SüperMarket</button>
+  <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split bg-white text-black-50 border-0" id="dropdownMenuReference" data-bs-toggle="dropdown" aria-expanded="false" data-bs-reference="d-flex">
+    <span class="visually-hidden"></span>
+  </button>
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenuReference">
+    <li><a class="dropdown-item text-black-50" href="#">Ev & Temizlik</a></li>
+    <li><a class="dropdown-item text-black-50" href="#">Gıda</a></li>
+    <li><a class="dropdown-item text-black-50" href="#">Petshop</a></li>
+    <li><hr class="dropdown-divider"></li>
+    <li><a class="dropdown-item text-white bg-warning" href="{% url 'home' %}">Tümü</a></li>
+  </ul>
+  <div class="btn-group">
+    <button type="button" class="btn btn-secondary bg-white text-black-50 border-0 blog">Yardım</button>
+    <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split bg-white text-black-50 border-0" id="dropdownMenuReference" data-bs-toggle="dropdown" aria-expanded="false" data-bs-reference="d-flex">
+      <span class="visually-hidden"></span>
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenuReference">
+      <li><a class="dropdown-item text-white bg-warning" href="{% url 'contact' %}">Müşteri Hizmetleri</a></li>
+      <li><a class="dropdown-item text-black-50" href="#">Bir Şikayet Girin</a></li>
+      <li><a class="dropdown-item text-black-50" href="#">Fikri Mülkiyet Hakkı İhlali Bildirin</a></li>
+    </ul>
+    <button class=" border-0 bg-white   hata"><a href="{% url 'add' %}" class="text-black-50">Ürün Ekle</a></button>
+  <button class=" border-0 bg-white text-black-50 iletisim"><a href="{% url 'contact' %}" class="text-black-50">İletişim</a></button>
+  </div>
+</div>

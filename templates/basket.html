@@ -1,0 +1,125 @@
+{% extends "home.html" %}
+{% load static %}
+{% block title %}
+    <title>Sepet</title>
+{% endblock title %}
+{% block content %}
+
+
+
+  <div class="container text-black-50">
+    <a href="{% url 'home' %}"><button type="button" class="btn btn-warning mx-2 mt-5 text-white"
+    style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x:  .5rem; --bs-btn-font-size: .75rem;">
+Ana Sayfa
+</button></a>
+<button type="button" class="btn mt-5"
+    style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
+Mağaza Kartı
+</button>
+
+<!-- Tablo -->
+<table class="mt-5 w-100">
+  <thead class="bg-warning text-white ">
+       <th class="tablobaslik1">Öğeler</th>
+       <th class="tablobaslikbos"></th>
+       <th class="tablobaslik2">Fiyat</th>
+       <th class="tablobaslik3">Miktar</th>
+       <th class="tablobaslik4">Toplam</th>
+  </thead>
+  <tr>
+    <td class="birincisatir1"><img src="{% static 'img/nike1.webp' %}" width="100%" alt=""></td>
+    <td class="birincisatir2">Colorblock Scuba <br> <small>Web ID: 1089772</small></td>
+    <td class="birincisatir3"><big>$59</big></td>
+    <td class="birincisatir4" ><button type="button" class="btn btn-secondary btn-sm text-black-50 bg-light border-0"> <small><i class="fa-solid fa-plus"></i> </small></button><small><input type="number" class="number"><button type="button" class="btn btn-secondary btn-sm text-black-50 bg-light border-0"> <small><i class="fa-solid fa-minus"></i> </small></button></small></td>
+    <td class="birincisatir5"><h6 class="d-inline"><big class=" text-warning">$59</big></h6> <button type="button" class="btn btn-sm btn-close text-white btn-light border-0 close" aria-label="Close"></button></td>
+  </tr>
+  <tr>
+    <td class="birincisatir1"><img src="{% static 'img/TV1.jpg' %}" width="100%" alt=""></td>
+    <td class="birincisatir2">Colorblock Scuba <br> <small>Web ID: 1089772</small></td>
+    <td class="birincisatir3"><big>$59</big></td>
+    <td class="birincisatir4" ><button type="button" class="btn btn-secondary btn-sm text-black-50 bg-light border-0"> <small><i class="fa-solid fa-plus"></i> </small></button><small><input type="number" class="number"><button type="button" class="btn btn-secondary btn-sm text-black-50 bg-light border-0"> <small><i class="fa-solid fa-minus"></i> </small></button></small></td>
+    <td class="birincisatir5"><h6 class="d-inline"><big class=" text-warning">$59</big></h6> <button type="button" class="btn btn-sm btn-close text-white btn-light border-0 close" aria-label="Close"></button></td>
+  </tr>
+  <tr>
+    <td class="birincisatir1"><img src="{% static 'img/xiaomi1.webp' %}" width="100%" alt=""></td>
+    <td class="birincisatir2">Colorblock Scuba <br> <small>Web ID: 1089772</small></td>
+    <td class="birincisatir3"><big>$59</big></td>
+    <td class="birincisatir4" ><button type="button" class="btn btn-secondary btn-sm text-black-50 bg-light border-0"> <small><i class="fa-solid fa-plus"></i> </small></button><small><input type="number" class="number"><button type="button" class="btn btn-secondary btn-sm text-black-50 bg-light border-0"> <small><i class="fa-solid fa-minus"></i> </small></button></small></td>
+    <td class="birincisatir5"><h6 class="d-inline"><big class=" text-warning">$59</big></h6> <button type="button" class="btn btn-sm btn-close text-white btn-light border-0 close" aria-label="Close"></button></td>
+  </tr>
+  <tr class="sontr">
+    <td class="birincisatir1"><img src="{% static 'img/usb1.webp' %}" width="100%" alt=""></td>
+    <td class="birincisatir2">Colorblock Scuba <br> <small>Web ID: 1089772</small></td>
+    <td class="birincisatir3"><big>$59</big></td>
+    <td class="birincisatir4" ><button type="button" class="btn btn-secondary btn-sm text-black-50 bg-light border-0"> <small><i class="fa-solid fa-plus"></i> </small></button><small><input type="number" class="number"><button type="button" class="btn btn-secondary btn-sm text-black-50 bg-light border-0"> <small><i class="fa-solid fa-minus"></i> </small></button></small></td>
+    <td class="birincisatir5"><h6 class="d-inline"><big class=" text-warning">$59</big></h6> <button type="button" class="btn btn-sm btn-close text-white btn-light border-0 close" aria-label="Close"></button></td>
+  </tr>
+</table>
+</div> 
+
+<!-- Form -->
+<div class="container mt-5 mb-5">
+  <h5><b>Bundan sonra ne yapmak istersiniz?</b></h5>
+  <p class="text-black-50">Kullanmak istediğiniz bir indirim kodunuz veya ödül puanınızın 
+    olup olmadığını seçin, teslimat maliyetinizi tahmin etmek 
+    istiyorsanız.</p>
+    <div class="row">
+    <div class="col-6">
+    <div class=" mt-3 mb-5 form">
+      <input type="radio" name="kod" id="kupon" class="ms-5 mt-4 formici"> <label for="" class="text-black-50">Kupon Kodu Kullan</label> <br>
+      <input type="radio" name="kod" id="cek" class="ms-5 mt-4 formici"> <label for="" class="text-black-50">Hediye Çekini Kullan</label> <br>
+      <input type="radio" name="kod" id="vergi" class="ms-5 mt-4 formici"> <label for="" class="text-black-50">Nakliye Tahmini & Vergileri</label> <br>
+
+      <div class="float-start ms-5  mt-4 ulke">
+        <h6 class="text-black-50 ulkebaslik"><big>Ülke:</big></h6>
+        <select name="" id="" class="text-black-50 bg-light ulkeici">
+          <option value="Türkiye">Türkiye</option>
+          <option value="ABD">ABD</option>
+          <option value="Almanya">Almanya</option>
+          <option value="İngiltere" >İngiltere</option>
+          <option value="Fransa">Fransa</option>
+        </select>
+    </div>
+
+    <div class="  float-end text-black-50 mt-4 mx-4 kod ">
+       <h6 class="kodbaslik"><big>Kod:</big></h6>
+      <input type="text" class="text-black-50 input">
+     </div>
+      
+
+    <div class="mt-4 text-black-50  bolge">
+      <h6 class="text-black-50 bolgebaslik"><big class=" mx-3">Bölge/Durum:</big></h6>
+      <select name="" id="durum" class="text-black-50 ms-3 bg-light">
+        <option value="secin">Bir Seçim Yapın</option>
+        <option value="karadeniz">Karadeniz Bölgesi</option>
+        <option value="ege">Ege Bölgesi</option>
+        <option value="akdeniz">Akdeniz Bölgesi</option>
+        <option value="marmara">Marmara Bölgesi</option>
+        <option value="içanadolu">İç Anadolu Bölgesi</option>
+      </select>
+     </div>
+    
+
+  <div class="buttton">
+    <button class="bg-warning text-white ms-5 mt-4 mb-4 border-0 al">Teklif al </button>
+      <button class="bg-warning text-white mt-4 mb-4 ms-3 border-0 et">Devam Et </button>
+  </div>
+</div>
+  </div>
+
+  <div class="col-5">
+  <div class="float-end mt-3 mb-5 pe-4 ps-4 pb-4  form2" id="ode">
+      <p class="mt-5 pe-2 ps-2 form2ici">Toplam Miktar<b class="float-end kalin ">$59</b></p>  
+      <p class="pe-2 ps-2 form2ici">Vergi <b class="float-end kalin">$2</b></p>  
+      <p class="pe-2 ps-2 form2ici">Kargo<b class="float-end kalin">Bedava</b></p> 
+      <p class="pe-2 ps-2 form2ici">Total<b class="float-end kalin">$61</b></p> 
+      <button class="bg-warning text-white mb-4 border-0 guncelle">Güncelle</button>
+      <button class="bg-warning text-white mb-4 ms-2  border-0 odemek" >Ödeme</button>
+  </div>
+</div>
+</div>
+</div>
+
+ 
+{% endblock content %}
+ 
