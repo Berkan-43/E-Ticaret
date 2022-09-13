@@ -18,13 +18,7 @@
             <form action=""  method="POST">
                 {% csrf_token %}
                  {{form}}
-                  {% if error %}
-                    <div class="alert alert-danger">
-                        {{error}}
-                    </div>
-                {% else %}
-                {% endif %}
-                <input type="submit" value="Gönder" class="btn btn-sm float-end bg-warning text-black-50 border-0 mt-4 iletisim3">
+                <input type="submit" value="Gönder" class="btn btn-sm float-end bg-warning text-black-50 border-0 mt-4 iletisim3" id="gonder">
             </form>
         </div>
             
@@ -50,6 +44,24 @@
   </div>
   
    <hr class="text-black-50">
+
+   <script src="{% static 'js/jquery.js' %}"></script>
+   <script>
+    $("#gonder").click(function() {
+        if ($("#name").val() == "") {
+            $("#name").attr('placeholder', 'İsim Boş Bırakılamaz..')
+        }
+        if($("#email").val() == "") {
+            $("#email").attr('placeholder', 'E-Mail Boş Bırakılamaz..')
+        }
+        if($("#subject").val() == "") {
+            $("#subject").attr("placeholder", "Bu Alan Zorunludur..")
+        }
+        if($("#message").val() == "") {
+            $("#message").attr("placeholder", "Lütfen Mesajınızı Yazınız..")
+        }
+    })
+   </script>
 
 {% endblock content %}
 

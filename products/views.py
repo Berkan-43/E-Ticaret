@@ -29,7 +29,6 @@ def contact(request):
             messages.success(request, "Mesajınız Gönderildi, 10 İş Günü İçinde Dönüş Yapılacaktır")
             return redirect('home')
     else:
-        messages.error(request, " Tüm Alanlar Zorunludur..!")
         form = ContactForm()
     context ={
         'form':form
