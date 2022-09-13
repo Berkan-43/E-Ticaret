@@ -15,7 +15,7 @@ class ContactForm(ModelForm):
         self.fields['name'].widget.attrs.update({'class': 'form-control float-start mb-4 is-invalid', 'placeholder': 'İsim', 'id': 'name'})
         self.fields['email'].widget.attrs.update({'class': 'form-control float-end mb-4 is-invalid', 'placeholder': 'E-mail', 'id': 'email'})
         self.fields['subject'].widget.attrs.update({'class': 'form-control mb-4 is-invalid', 'placeholder': 'Subject', 'id': 'subject'})
-        self.fields['message'].widget.attrs.update({'class': 'form-control text-black-50 mb-4 is-invalid', 'placeholder': 'Mesajınızı Yazınız', 'id': 'message'})
+        self.fields['message'].widget.attrs.update({'class': 'form-control text-black-50 mb-2 is-invalid message', 'placeholder': 'Mesajınızı Yazınız', 'id': 'message'})
 
 
 class CreateForm(ModelForm):

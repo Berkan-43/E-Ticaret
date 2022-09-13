@@ -16,6 +16,11 @@
 <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
+  <style>
+   .li {
+    cursor: pointer;
+   } 
+  </style>
     {% include "includes/_navbar.html" %}
 
     {% if messages %}
@@ -32,48 +37,65 @@
 
   <div class="container afis mt-5">
     <div class="reklam bg-warning  text-white text-center">
-      <h3 class="d-inline float-start mx-5 sinirli">Sınırlı Teklif-Bugün Sipariş Verin</h3> 
+      <h3 class="d-inline float-start mx-5 sinirli">Sınırlı Teklif-Bugün Sipariş Verin </h3> 
       <h2 class="text-warning bg-white d-inline mb-3 doksan"><big>$99</big></h2>
-      <h6 class="d-inlne float-end afisici"><small>*Bir alana bir bedava <br>
+      <h6 class="d-inlne float-end afisici">
+        <small>*Bir alana bir bedava <br>
         *Promosyonlarda %40'a varan indirim
-      </small></h6>
+      </small>
+    </h6>
     </div>
 </div>
 
+<!-- clock -->
+  <div class="container d-flex justify-content-center zaman">
+    <div class="row w-25">
+      <div class="col-4">
+        <h2 class="yuvarlak bg-warning mt-3 me-0 d-flex justify-content-center">  <b class="text-white saat"><big></big></b></h2>
+      </div>
+      <div class="col-4">
+        <h2 class="yuvarlak bg-warning mt-3  d-flex justify-content-center">  <b class="text-white dakika"><big></big></b></h2>
+      </div>
+      <div class="col-4">
+        <h2 class="yuvarlak bg-warning mt-3 mx-0 d-flex justify-content-center">  <b class="text-white saniye"><big></big></b></h2>
+      </div>
+    </div>
+  </div>
 <div class="container mt-5">
-  <div class="float-start super"><h4 class="text-warning baslik mx-3">Kategoriler</h4></div> 
+   
   <div class="text-center super"><h4 class="text-warning baslik">SüperMarket</h4></div> 
 </div>
   
      <!-- Acordion -->
      <div class="container ">
       <div class="row ">
-        <div class="col-3 acordion">
-          <div class="m-auto mt-5 accordiondiv float-start">
-              <button class="accordion1"><small>SPOR GİYİM</small></button>
-              <div class="panel">
-                 <ul>
-                  <li>Koşu Ayakkabı</li>
-                  <li>Nike T-Shirt</li>
-                  <li>Eşortman</li>
-                 </ul>
+        <div class="col-lg-3 col-md-5 acordion">
+          <div class="float-start  super"><h4 class="text-warning expand-lg baslik mx-3">Kategoriler</h4></div>
+          <div class="m-auto accordiondiv float-start" id="accordion">
+              <button class="accordion1" id="accordion1"><small>SPOR GİYİM</small></button>
+              <div class="panel text-black-50" id="panel1">
+                <ul>
+                  <li class="btn-sm border-0 bg-white li">Koşu Ayakkabı</li>
+                  <li class="btn-sm border-0 bg-white li">Nike T-Shirt</li>
+                  <li class="btn-sm border-0 bg-white li">Eşortman</li>
+                </ul>
               </div>
 
-              <button class="accordion1 mt-2"><small>ERKEK</small></button>
-              <div class="panel">
-                  <ul>
-                    <li>Gömlek</li>
-                    <li>Ayakkabı</li>
-                    <li>Pantolon</li>
+              <button class="accordion1 mt-2" id="accordion2"><small>ERKEK</small></button>
+              <div class="panel text-black-50" id="panel2">
+                <ul>
+                    <li class="btn-sm border-0 bg-white li">Gömlek</li>
+                    <li class="btn-sm border-0 bg-white li">Ayakkabı</li>
+                    <li class="btn-sm border-0 bg-white li">Pantolon</li>
                   </ul>
               </div>
 
-              <button class="accordion1 mt-2"><small>KADIN</small></button>
-              <div class="panel">
+              <button class="accordion1 mt-2" id="accordion3"><small>KADIN</small></button>
+              <div class="panel text-black-50"  id="panel3">
                 <ul>
-                  <li>Adidas T-Shirt</li>
-                  <li>Hırka</li>
-                  <li>Topuklu Ayakkabı</li>
+                  <li class="btn-sm border-0 bg-white li">T-Shirt</li>
+                  <li class="btn-sm border-0 bg-white li">Hırka</li>
+                  <li class="btn-sm border-0 bg-white li">Topuklu Ayakkabı</li>
                 </ul>
             </div>
               <button class="accordion mt-2"><small>ÇOCUK</small></button>
@@ -110,13 +132,13 @@
       </div> -->
 
             {% for i in urunler %}      
-             <div class="col-3 float-end">
-              <div class="card mt-5 television" style="width: 100%; ">
+             <div class="col-lg-3 col-md-5 card mt-4" id="card">
+              <div class=" mt-5 television" style="width: 100%; ">
                 <img src="{{i.resim.url}}" class="card-img-top image" alt="...">
                 <div class="card-body text-center">
-                  <h5 class="card-title  text-warning fs-3"><big class="para">${{i.fiyat}}</big></h5>
-                  <p class="card-text text-black-50">{{i.aciklama}}</p>
-                  <button class="btn btn-group bg-light text-black-50 sepeteekle"><i class="fa-solid fa-cart-shopping ekle"></i> Sepete Ekle</button>
+                  <span class="text-white fs-5 price badge rounded-pill bg-warning price"><big class="para">${{i.fiyat}}</big></span>
+                  <p class="card-tittle text-black-50">{{i.aciklama}}</p>
+                  <a class="btn btn-warning btn-card text-black-50 sepeteekle" id="ekle"><i class="fa-solid fa-cart-shopping ekle"></i> Sepete Ekle</a>
                 </div>
               </div>
               <div class="fs-6"> 
@@ -126,11 +148,42 @@
              </div>
     {% endfor %}
   </div>
-</div> 
-        
-        {% endblock content %}
-      
-      
+</div>  
+  {% endblock content %}
+  
+  <script src="{% static 'js/jquery.js' %}"></script>
+  <script> 
+    var panel1 = $("#panel1");
+    var panel2 = $("#panel2");
+    var panel3 = $("#panel3");
+   $("#accordion1").click(function() {
+    panel1.toggle(500);
+   });
+   $("#accordion2").click(function() {
+    panel2.toggle(500);
+   });
+   $("#accordion3").click(function() {
+    panel3.toggle(500);
+   });
+
+  //  clock
+  var zaman = setInterval(kac, 1000);
+
+  function kac() {
+      var d=new Date();
+      var saat = d.getHours();
+      var dakika = d.getMinutes();
+      var saniye = d.getSeconds();
+      $(".saat").text(saat);
+      $(".dakika").text(dakika);
+      $(".saniye").text(saniye);
+   }
+   
+
+
+
+
+  </script> 
         
 
 {% include "includes/_footer.html" %}

@@ -2,7 +2,11 @@
 {% load static %}
  {% block title %} <title>Favories</title> {% endblock title %}
      
-    
+  <style>
+   .li {
+    cursor: pointer;
+   } 
+  </style>
 {% block content %}
 <div class="container mt-5">
   <div class="float-start super"><h4 class="text-warning baslik">Kategoriler</h4></div>
@@ -13,34 +17,34 @@
       
      <div class="container ">
       <div class="row ">
-        <div class="col-3 acordion">
+        <div class="col-lg-3 col-md-5 acordion">
           <div class="m-auto mt-5 accordiondiv float-start">
-              <button class="accordion1"><small>SPOR GİYİM</small></button>
-              <div class="panel">
-                 <ul>
-                  <li>Koşu Ayakkabı</li>
-                  <li>Nike T-Shirt</li>
-                  <li>Eşortman</li>
-                 </ul>
-              </div>
+            <button class="accordion1" id="accordion1"><small>SPOR GİYİM</small></button>
+            <div class="panel text-black-50" id="panel1">
+              <ul>
+                <li class="btn-sm border-0 bg-white li">Koşu Ayakkabı</li>
+                <li class="btn-sm border-0 bg-white li">Nike T-Shirt</li>
+                <li class="btn-sm border-0 bg-white li">Eşortman</li>
+              </ul>
+            </div>
 
-              <button class="accordion1 mt-2"><small>ERKEK</small></button>
-              <div class="panel">
-                  <ul>
-                    <li>Gömlek</li>
-                    <li>Ayakkabı</li>
-                    <li>Pantolon</li>
-                  </ul>
-              </div>
-
-              <button class="accordion1 mt-2"><small>KADIN</small></button>
-              <div class="panel">
-                <ul>
-                  <li>Adidas T-Shirt</li>
-                  <li>Hırka</li>
-                  <li>Topuklu Ayakkabı</li>
+            <button class="accordion1 mt-2" id="accordion2"><small>ERKEK</small></button>
+            <div class="panel text-black-50" id="panel2">
+              <ul>
+                  <li class="btn-sm border-0 bg-white li">Gömlek</li>
+                  <li class="btn-sm border-0 bg-white li">Ayakkabı</li>
+                  <li class="btn-sm border-0 bg-white li">Pantolon</li>
                 </ul>
             </div>
+
+            <button class="accordion1 mt-2" id="accordion3"><small>KADIN</small></button>
+            <div class="panel text-black-50"  id="panel3">
+              <ul>
+                <li class="btn-sm border-0 bg-white li">T-Shirt</li>
+                <li class="btn-sm border-0 bg-white li">Hırka</li>
+                <li class="btn-sm border-0 bg-white li">Topuklu Ayakkabı</li>
+              </ul>
+          </div>
               <button class="accordion mt-2"><small>ÇOCUK</small></button>
               
               <button class="accordion mt-2"><small>MODA</small></button>
@@ -70,13 +74,13 @@
       </div> -->
 
             {% for i in urun %}      
-             <div class="col-3 float-end">
+             <div class="col-lg-3 col-md-5 float-end">
               <div class="card mt-5 television" style="width: 100%; ">
                 <img src="{{i.gorsel.url}}" class="card-img-top image" alt="...">
                 <div class="card-body text-center">
-                  <h5 class="card-title  text-warning fs-3"><big class="para">${{i.ucret}}</big></h5>
+                  <span class="card-title fs-5 price badge rounded-pill bg-warning"><big class="para">${{i.ucret}}</big></span>
                   <p class="card-text text-black-50">{{i.hakkinda}}</p>
-                  <button class="btn btn-group bg-light text-black-50 sepeteekle"><i class="fa-solid fa-cart-shopping ekle"></i> Sepete Ekle</button>
+                  <a class="btn btn-group bg-warning text-black-50 sepeteekle"><i class="fa-solid fa-cart-shopping ekle"></i> Sepete Ekle</a>
                 </div>
               </div>
               <div class="fs-6"> 

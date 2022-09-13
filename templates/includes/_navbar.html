@@ -1,5 +1,5 @@
    {% load static %}
-   <nav class="nav bg-light fixed-top">
+   <nav class="nav bg-light">
     <div class="container-fluid">
     <div class="float-start mx-3 icon1">
         <small class="phone"><a href="" class="text-black-50"><i class="fa-solid fa-phone  text-black-50"></i>+2 95 01  88 82</a></small> 
@@ -40,17 +40,21 @@
 
     <div class="float-end orta">
         {% if user.is_authenticated %}
-          <a href="" class="btn text-black-50 giris"><i class="fa-solid fa-user me-1 mx-2 capitalize text-capitalize"></i>{{request.user}}</a>
-          <a href="{% url 'favori' %}" class="btn text-black-50 star"><i class="fa-solid fa-star me-1 mx-2"></i>Favoriler</a>
-          <a href="{% url 'basket' %}" class="btn text-black-50 sepet"><i class="fa-solid fa-cart-shopping me-1 mx-2"></i>Sepet</a>
-          <a href="" class="btn text-black-50 odeme"><i class="fa-solid fa-money-bill me-1 mx-2"></i>Ödeme</a>
-          <a href="" type="button" class="btn text-black-50" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa-solid fa-right-from-bracket me-1 mx-2"></i>Çıkış</a>
+          <div class="btn-group pencere3">
+        <button type="button" class="btn  bg-white text-black-50 border-0 market"  id="pencere1">
+          <a href=""  class="btn text-capitalize text-black-50 giris"><i class="fa-solid fa-user me-1 mx-2"></i>{{request.user}}</a>
+        </button>
+        <ul class="dropdown-menu acilir3">
+          <li><a class="dropdown-item text-black-50" href="#" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa-solid fa-right-from-bracket me-1 mx-2"></i>Çıkış</a></li>
+        </ul>
+      </div>
+      
           <!-- Modal -->
           <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel">Çıkış Yap</h5>
+                  <h5 class="modal-title" id="exampleModalLabel"><i class="fa-solid fa-right-from-bracket me-1 mx-2"></i>Çıkış Yap</h5>
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -62,7 +66,14 @@
                 </div>
               </div>
             </div>
-          </div>
+          </div> 
+     
+        <a href="{% url 'favori' %}" class="btn text-black-50 star"><i class="fa-solid fa-star me-1 mx-2"></i>Favoriler</a>
+        <a href="" class="btn text-black-50 odeme"><i class="fa-solid fa-money-bill me-1 mx-2"></i>Ödeme</a>
+        <a href="{% url 'basket' %}" class="btn position-relative text-black-50 sepet"><i class="fa-solid fa-shopping-cart me-1 mx-2"></i><span id="cart-cound" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-warning mt-2">0</span></a>
+       
+        
+        
           
         {% else %}
         <a href="{% url 'login' %}" class="text-black-50 giris"><i class="fa-solid fa-user me-1 mx-2"></i></i>Giriş Yap</a>
@@ -80,41 +91,106 @@
 <hr class="text-black-50">
 
 <!-- Search -->
-<div class="input-wrapper d-flex float-end mx-4 ara">
-  <form action="" method="GET">
-  <div class="btn-toolbar justify-content-between " role="search" aria-label="Toolbar with button groups">
-  </div>
+<div class="input-wrapper d-flex float-end mx-4 ara" id="formdiv">
+  <form action="" method="GET" id="form">
   <div class="input-group ">
-    <button type="submit" class="input-group-text " id="btnGroupAddon2"><i class="fa-solid fa-magnifying-glass"></i></button>
-    <input type="text" name="search_product" value="{{search_product}}" class="form-control " placeholder="Ara" aria-label="Input group example" aria-describedby="btnGroupAddon2">
+    <button type="submit" class="input-group-text " id="btnGroupAddon2 search"><i class="fa-solid fa-magnifying-glass"></i></button>
+    <input type="text" name="search_product" value="{{search_product}}" class="form-control" id="arainput" placeholder="Ara" aria-label="Input group example" aria-describedby="btnGroupAddon2">
   </div>
 </form>
 </div>
+
+ <div>
+  
  
+
 <div class="btn-group son">
-  <button class="mx-3 me-0 border-0 bg-white  anasayfa" id="anasayfa"><a href="{% url 'home' %}" class="text-warning">Ana Sayfa</a></button>
-  <button type="button" class="btn btn-secondary bg-white text-black-50 border-0 market">SüperMarket</button>
-  <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split bg-white text-black-50 border-0" id="dropdownMenuReference" data-bs-toggle="dropdown" aria-expanded="false" data-bs-reference="d-flex">
-    <span class="visually-hidden"></span>
+    <button class="mx-3 me-0 border-0 bg-white anasayfa" id="anasayfa"><a href="{% url 'home' %}" class="  text-warning">Ana Sayfa</a></button>
+    <div class="btn-group pencere1">
+  <button type="button" class="btn btn-secondary bg-white text-black-50 border-0 market"  id="pencere1">
+    SüperMarket
   </button>
-  <ul class="dropdown-menu" aria-labelledby="dropdownMenuReference">
+  <ul class="dropdown-menu acilir1">
     <li><a class="dropdown-item text-black-50" href="#">Ev & Temizlik</a></li>
     <li><a class="dropdown-item text-black-50" href="#">Gıda</a></li>
     <li><a class="dropdown-item text-black-50" href="#">Petshop</a></li>
     <li><hr class="dropdown-divider"></li>
     <li><a class="dropdown-item text-white bg-warning" href="{% url 'home' %}">Tümü</a></li>
   </ul>
-  <div class="btn-group">
-    <button type="button" class="btn btn-secondary bg-white text-black-50 border-0 blog">Yardım</button>
-    <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split bg-white text-black-50 border-0" id="dropdownMenuReference" data-bs-toggle="dropdown" aria-expanded="false" data-bs-reference="d-flex">
-      <span class="visually-hidden"></span>
+</div>
+</div>
+
+  <div class="btn-group pencere2">
+    <button type="button" class="btn btn-secondary bg-white text-black-50 border-0 blog ">
+      Yardım
     </button>
-    <ul class="dropdown-menu" aria-labelledby="dropdownMenuReference">
-      <li><a class="dropdown-item text-white bg-warning" href="{% url 'contact' %}">Müşteri Hizmetleri</a></li>
+    <ul class="dropdown-menu acilir2">
       <li><a class="dropdown-item text-black-50" href="#">Bir Şikayet Girin</a></li>
       <li><a class="dropdown-item text-black-50" href="#">Fikri Mülkiyet Hakkı İhlali Bildirin</a></li>
+      <li><hr class="dropdown-divider"></li>
+      <li><a class="dropdown-item text-white bg-warning" href="{% url 'contact' %}">Müşteri Hizmetleri</a></li>
     </ul>
-    <button class=" border-0 bg-white   hata"><a href="{% url 'add' %}" class="text-black-50">Ürün Ekle</a></button>
-  <button class=" border-0 bg-white text-black-50 iletisim"><a href="{% url 'contact' %}" class="text-black-50">İletişim</a></button>
   </div>
+  <button class=" border-0 bg-white   hata"><a href="{% url 'add' %}" class="text-black-50">Ürün Ekle</a></button>
+  <button class=" border-0 bg-white text-black-50 iletisim"><a href="{% url 'contact' %}" class="text-black-50">İletişim</a></button>
 </div>
+
+<script src="{% static 'js/jquery.js' %}"></script>
+
+<script>
+  var acilir1 = $(".acilir1");
+  var acilir2 = $(".acilir2");
+  $(".pencere1").mouseenter(function() {
+    $(".acilir1").slideDown(500)
+  });
+
+  $(".pencere1").mouseleave(function() {
+    $(".acilir1").slideUp(500)
+  });
+
+  $(".acilir1").mouseenter(function() {
+    $(".acilir1").show()
+  });
+
+  $(".acilir1").mouseleave(function() {
+    $(".acilir1").hide(500)
+  });
+
+
+$(".pencere2").mouseenter(function() {
+  $(".acilir2").slideDown(500)
+});
+
+$(".pencere2").mouseleave(function() {
+  $(".acilir2").slideUp(500)
+});
+
+$(".acilir2").mouseenter(function() {
+  $(".acilir2").show()
+});
+
+$(".acilir2").mouseleave(function() {
+  $(".acilir2").hide(500)
+});
+
+
+$(".pencere3").mouseenter(function() {
+  $(".acilir3").slideDown(500)
+});
+
+$(".pencere3").mouseleave(function() {
+  $(".acilir3").slideUp(500)
+});
+
+$(".acilir3").mouseenter(function() {
+  $(".acilir3").show()
+});
+
+$(".acilir3").mouseleave(function() {
+  $(".acilir3").hide(500)
+});
+
+
+ 
+  
+</script>

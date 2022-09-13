@@ -28,21 +28,24 @@ def userRegister(request):
         password = request.POST['password']
         repassword = request.POST['repassword']
 
-        if password == repassword:
-            if User.objects.filter(username = username).exists():
-                messages.error(request, "Bu Kullanıcı Adı Zaten Var..")
-                return render(request, "register.html")
-            else:
-                if User.objects.filter(email = email).exists():
-                    messages.error(request, "E-mail Adresi Kullanılıyor.")
+        if password != "" and repassword != "":
+            if password == repassword:
+                if User.objects.filter(username = username).exists():
+                    messages.error(request, "Bu Kullanıcı Adı Zaten Var..")
                     return render(request, "register.html")
                 else:
-                   user = User.objects.create_user(username=username, email=email, password=password)
-                   user.save()
-                   messages.success(request, "Üyeliğiniz Eklendi.")
-                   return redirect('login')
+                    if User.objects.filter(email = email).exists():
+                        messages.error(request, "E-mail Adresi Kullanılıyor.")
+                        return render(request, "register.html")
+                    else:
+                        user = User.objects.create_user(username=username, email=email, password=password)
+                        user.save()
+                        messages.success(request, "Üyeliğiniz Eklendi.")
+                        return redirect('login')
+            else:
+                messages.error(request, "Parolalar Eşleşmiyor.")
         else:
-            messages.error(request, "Parolalar Eşleşmiyor.")
+            messages.error(request, "Parola Boş Bırakılamaz.")
     return render(request, 'register.html')
 
 

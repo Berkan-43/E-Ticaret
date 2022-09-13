@@ -116,6 +116,28 @@
     </div>
 
     <div class=" w-100 mb-0 paragraf"><p class="float-start mb-0"><small>Copyright 2013 E-SHOPPER ınc All rights reserved</small></p>
-      <p class="float-end mb-0"><small class="me-5">Designed by <a href="" class="text-warning"><ins><i>Themeum</i></ins></a></small><a href="#anasayfa"><big><button class="float-end mb-0 bg-warning text-white border-0"><i class="fa-solid fa-chevron-up"></i></button></big></a></p>
-    </div>
+      <p class="float-end mb-0">
+        <small class="me-5">
+          Designed by 
+          <a href="" class="text-warning">
+            <ins><i>Themeum</i></ins></a>
+          </small>
+          <a href="#" class="scroll" id="scrollbar">^</a>
+      </p> </div>
 </footer>
+<script>
+  $(window).scroll(function() {
+    var mesafe = $(window).scrollTop();
+    if(mesafe>300) {
+      $(".scroll").fadeIn();
+    }
+    else {
+      $(".scroll").fadeOut();
+    }
+  });
+  $(".scroll").click(function() {
+    $("html").animate ({
+      scrollTop : 0
+    });
+  });
+</script>

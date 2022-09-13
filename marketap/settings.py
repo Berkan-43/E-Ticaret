@@ -35,13 +35,14 @@ INSTALLED_APPS = [
     'products',
     'user',
     'favories',
+    'django_cleanup',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
+    
     # recCaptcha
     # 'captcha',
 ]
@@ -136,6 +137,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 #  Media Dosya Yolu
 MEDIA_URL = ''
 MEDIA_ROOT = os.path.join( BASE_DIR / 'image')
+
 from django.contrib.messages import constants as messages
 MESSAGE_TAGS = {
     messages.ERROR: 'danger'
